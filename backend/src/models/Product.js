@@ -103,6 +103,7 @@ const Product = sequelize.define('Product', {
 }, {
   tableName: 'products',
   timestamps: true,
+  underscored: true,
   hooks: {
     beforeValidate: (product) => {
       if (product.name && !product.slug) {

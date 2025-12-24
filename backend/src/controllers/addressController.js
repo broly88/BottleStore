@@ -4,7 +4,7 @@ export const getUserAddresses = async (req, res, next) => {
   try {
     const addresses = await Address.findAll({
       where: { userId: req.user.id },
-      order: [['isDefault', 'DESC'], ['createdAt', 'DESC']],
+      order: [['is_default', 'DESC'], ['created_at', 'DESC']],
     });
 
     res.json({

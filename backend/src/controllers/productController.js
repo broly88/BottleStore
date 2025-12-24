@@ -64,11 +64,18 @@ export const getAllProducts = async (req, res, next) => {
 
     const offset = (parseInt(page) - 1) * parseInt(limit);
 
+    // Map camelCase to snake_case for ordering
+    const sortByMap = {
+      'createdAt': 'created_at',
+      'updatedAt': 'updated_at',
+    };
+    const orderColumn = sortByMap[sortBy] || sortBy;
+
     const { count, rows: products } = await Product.findAndCountAll({
       where,
       limit: parseInt(limit),
       offset,
-      order: [[sortBy, sortOrder]],
+      order: [[orderColumn, sortOrder]],
     });
 
     res.json({
@@ -216,7 +223,7 @@ export const getFeaturedProducts = async (req, res, next) => {
         isActive: true,
       },
       limit: parseInt(limit),
-      order: [['createdAt', 'DESC']],
+      order: [['created_at', 'DESC']],
     });
 
     res.json({

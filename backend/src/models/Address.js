@@ -68,6 +68,7 @@ const Address = sequelize.define('Address', {
 }, {
   tableName: 'addresses',
   timestamps: true,
+  underscored: true,
 });
 
 Address.prototype.getFullAddress = function() {

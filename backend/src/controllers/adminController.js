@@ -47,7 +47,7 @@ export const getDashboardStats = async (req, res, next) => {
 
     const recentOrders = await Order.findAll({
       limit: 5,
-      order: [['createdAt', 'DESC']],
+      order: [['created_at', 'DESC']],
       include: [
         {
           model: User,
@@ -213,7 +213,7 @@ export const getAllUsers = async (req, res, next) => {
       attributes: { exclude: ['passwordHash', 'emailVerificationToken', 'resetPasswordToken'] },
       limit: parseInt(limit),
       offset,
-      order: [['createdAt', 'DESC']],
+      order: [['created_at', 'DESC']],
     });
 
     res.json({

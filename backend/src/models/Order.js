@@ -105,6 +105,7 @@ const Order = sequelize.define('Order', {
 }, {
   tableName: 'orders',
   timestamps: true,
+  underscored: true,
   hooks: {
     beforeCreate: async (order) => {
       if (!order.orderNumber) {

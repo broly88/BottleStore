@@ -26,6 +26,7 @@ const Cart = sequelize.define('Cart', {
 }, {
   tableName: 'carts',
   timestamps: true,
+  underscored: true,
 });
 
 export default Cart;

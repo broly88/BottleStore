@@ -115,7 +115,7 @@ export const getUserOrders = async (req, res, next) => {
           include: [{ model: Product, as: 'product' }],
         },
       ],
-      order: [['createdAt', 'DESC']],
+      order: [['created_at', 'DESC']],
       limit: parseInt(limit),
       offset,
     });
@@ -252,7 +252,7 @@ export const getAllOrders = async (req, res, next) => {
           include: [{ model: Product, as: 'product' }],
         },
       ],
-      order: [['createdAt', 'DESC']],
+      order: [['created_at', 'DESC']],
       limit: parseInt(limit),
       offset,
     });

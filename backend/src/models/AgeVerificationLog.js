@@ -50,6 +50,7 @@ const AgeVerificationLog = sequelize.define('AgeVerificationLog', {
 }, {
   tableName: 'age_verification_logs',
   timestamps: true,
+  underscored: true,
   updatedAt: false,
 });
 
